@@ -157,6 +157,8 @@ After running `tofu apply`, OpenTofu recreated the missing rule. I ran `tofu pla
 This also showed why manually changing resources managed by IaC can be a problem, because the code should normally be the source of truth.
 
 
+OpenTofu only detects changes to resources and attributes that it manages. For example, if I manually created a completely separate resource in Horizon that was not part of the OpenTofu state, it would not normally try to manage or remove it. This is because OpenTofu compares its configuration with the resources that it knows through its state.
+
 ## Experiment 3 – Destroy and rebuild
 
 **Prediction:** I expected `tofu destroy` to remove all the resources managed by this configuration. After that, I expected `tofu apply` to recreate the complete infrastructure and configure Apache again without me creating anything manually.
@@ -249,7 +251,7 @@ After restoring the desired state, another plan confirmed that the infrastructur
 
 ![No changes after drift repair](documentation/images/week7-14-no-changes.png)
 
-### Experiment 3 – Destroy and rebuild
+## Experiment 3 – Destroy and rebuild
 
 OpenTofu successfully destroyed all managed resources.
 
@@ -261,4 +263,4 @@ The same configuration was then used to recreate all 8 resources from scratch.
 
 Finally, the automatically configured Apache web server was accessible again after the rebuild.
 
-![Web server after rebuild](documentation/images/week7-17-rebuild-web.png)
+![Web server after rebuild](documentation/images/week7-19-final-web-name.png)

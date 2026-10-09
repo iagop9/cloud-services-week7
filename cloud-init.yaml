@@ -12,10 +12,12 @@ write_files:
       <!DOCTYPE html>
       <html>
       <head>
+        <meta charset="UTF-8">
         <title>Cloud Services Week 7</title>
       </head>
       <body>
         <h1>${page_message}</h1>
+        <p>Iago Prol González</p>
         <p>This web server was automatically configured with cloud-init.</p>
       </body>
       </html>
