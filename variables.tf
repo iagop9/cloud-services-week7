@@ -21,6 +21,11 @@ variable "flavor_name" {
 variable "ssh_allowed_cidr" {
   description = "CIDR address allowed to connect using SSH"
   type        = string
+
+  validation {
+    condition     = can(cidrhost(var.ssh_allowed_cidr, 0))
+    error_message = "ssh_allowed_cidr must be a valid CIDR address."
+  }
 }
 
 variable "public_key_path" {

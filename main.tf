@@ -14,7 +14,7 @@ resource "openstack_compute_keypair_v2" "week7" {
 
 resource "openstack_networking_secgroup_v2" "week7" {
   name        = "${var.name_prefix}-security-group"
-  description = "Security group for Cloud Services Week 7"
+  description = "Security group managed with OpenTofu - Week 7"
 }
 
 resource "openstack_networking_secgroup_rule_v2" "ssh" {
