@@ -1,0 +1,15 @@
+# OpenTofu / Terraform working files and state
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Credentials - never commit these
+clouds.yaml
+secure.yaml
+*openrc*
+*.pem
+
+# Personal values
+terraform.tfvars
+*.auto.tfvars
